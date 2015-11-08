@@ -2,19 +2,8 @@ __author__ = 'Diego Alberto Silguero'
 # -*- coding: utf-8 -*-
 
 class Nota():
-    id = 1
-    def __init__(self, asunto):
-        self.__id_nota = id
+    def __init__(self,asunto):
         self.__asunto = asunto
-        self.id =+ 1
-
-    @property
-    def id_nota(self):
-        return self.__id_nota
-
-    @id_nota.setter
-    def id_nota(self, id):
-        self.__id_nota = id
 
     @property
     def asunto(self):
@@ -25,36 +14,45 @@ class Nota():
         self.__asunto = asunto
 
     def __str__(self):
-        return str(self.__id_nota)+" - "+self.__asunto
+        return self.__asunto
 
 
-def menu(agenda):
-    opcion= int(input("AGENDA\n"
-          "1. Agregar nota\n"
-          "2. Borrar nota\n"
-          "3. Mostrar una nota\n"
-          "4. Mostrar todas las notas\n"
-          "0. Salir\n\n"
-          "Elige opcion: "))
+def menu_agenda():
+    agenda = list()
+    opcion = -1
 
-    if(opcion == 1):
-        nota = input("Escribe tu nota: ")
-        list(agenda).append(Nota(nota))
-        menu(agenda)
-    elif(opcion == 2):
-        nota = int(input("Introduce número de nota: "))
-        list(agenda).remove(nota-1)
-        menu(agenda)
-    elif(opcion == 3):
-        nota = int(input("Introduce número de nota: "))
-        list(agenda).__getitem__(nota-1)
-        menu(agenda)
-    elif(opcion!=0):
-        menu(agenda)
+    while (opcion!=0):
+        opcion= int(input("\nAGENDA ELECTRÓNICA\n"
+              "1. Agregar nota\n"
+              "2. Borrar nota\n"
+              "3. Mostrar una nota\n"
+              "4. Mostrar todas las notas\n"
+              "0. Salir\n\n"
+              "Elige opcion: "))
 
+        if(opcion == 1):
+            nota = input("Escribe tu nota: ")
+            agenda.append(Nota(nota))
+        elif(opcion == 2):
+            n = int(input("Introduce número de nota: "))
+            if(n<1 or n>len(agenda)):
+                print("ERROR. El número de nota no existe")
+            else:
+                agenda.remove(agenda[n-1])
+        elif(opcion == 3):
+            n = int(input("Introduce número de nota: "))
+            if(n<1 or n>len(agenda)):
+                print("ERROR. El número de nota no existe")
+            else:
+                print(n," - ",agenda[n-1])
+        elif(opcion == 4):
+            id = 1
+            print("\nNOTAS GUARDADAS")
+            for nota in agenda:
+                print(id," - ",nota)
+                id += 1
 
-agenda = list()
-menu(agenda)
+menu_agenda()
 
 
 
