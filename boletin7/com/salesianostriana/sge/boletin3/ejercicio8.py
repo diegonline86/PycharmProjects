@@ -86,6 +86,8 @@ def menu_hotel():
     list_hab.append(Habitacion(5,False))
 
     while(hab != 0):
+        print("\nHOTEL DAM"
+              "\n----------")
         for hab in list_hab:
             print(hab)
         hab = int(input("\nElige habitación (cero para salir): "))
@@ -97,7 +99,7 @@ def menu_hotel():
             list_hab[hab-1].cliente = Cliente(dni,nombre,apellidos)
             list_hab[hab-1].reservada = True
         else:
-            print("Lo siento! La habitacion ya esta reservada\n")
+            print("Lo siento! La habitacion ya esta reservada")
 
 menu_hotel()
 
