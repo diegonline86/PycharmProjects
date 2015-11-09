@@ -19,6 +19,3 @@ print(sorted(votos.items(), key = operator.itemgetter(1), reverse= True))
 print("\nGanador"
       "\n---------")
 print(max(sorted(votos.items(), key = operator.itemgetter(1), reverse= True)))
-
-
-
