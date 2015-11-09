@@ -2,20 +2,21 @@
 from com.salesianostriana.sge.cifrado_cesar.utiles_cifrado import *
 
 list_fich = list()
-list_fich.append(open("amistad.txt","r+"))
-list_fich.append(open("las_apariencias.txt","r+"))
-
+list_fich.append(open("files/amistad.txt","r+"))
+list_fich.append(open("files/las_apariencias.txt","r+"))
 
 opcion = -1
 
 def leer_fichero(fich):
     contenido = fich.readline();
+    print()
     while (contenido != ""):
         print(contenido,end="")
         contenido = fich.readline();
+    print()
 
 def encriptar_fichero(fich):
-    fich_enc = open("fich_enc.txt","w+")
+    fich_enc = open("files/fich_enc.txt","w+")
 
     #procesamos el contenido del fichero orginal encriptandolo
     #y guardando el resultado en un fichero auxiliar
@@ -32,11 +33,9 @@ def encriptar_fichero(fich):
 
     #cerramos el flujo del fichero auxiliar
     fich_enc.close()
-    #eliminamos el fichero auxiliar
-    del fich_enc
 
 def desencriptar_fichero(fich):
-    fich_enc = open("fich_enc.txt","w+")
+    fich_enc = open("files/fich_enc.txt","w+")
 
     #procesamos el contenido del fichero orginal desencriptandolo
     #y guardando el resultado en un fichero auxiliar
@@ -53,8 +52,6 @@ def desencriptar_fichero(fich):
 
     #cerramos el flujo del fichero auxiliar
     fich_enc.close()
-    #eliminamos el fichero auxiliar
-    del fich_enc
 
 while(opcion != 0):
     opcion = int(input("\nOPCIONES"
